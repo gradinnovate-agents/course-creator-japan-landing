@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css script.js _headers dist/",
+    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css script.js _headers _worker.js dist/",
     "dev": "npx serve . -l 4173",
     "check": "node --check script.js",
     "deploy": "npm run build && wrangler pages deploy dist --project-name course-creator-japan-landing"

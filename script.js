@@ -23,16 +23,15 @@ nav?.addEventListener("click", (event) => {
 
 const leadForm = document.querySelector("[data-lead-form]");
 const formStatus = document.querySelector("[data-form-status]");
-const submitFrame = document.querySelector("[name='google-form-submit-frame']");
-let hasPendingSubmission = false;
 
-leadForm?.addEventListener("submit", (event) => {
+leadForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
   const entryFields = Array.from(leadForm.querySelectorAll("[name^='entry.']"));
   const hasEmptyRequiredField = entryFields.some((field) => field.required && !field.value.trim());
   const emailField = leadForm.querySelector("input[type='email']");
 
   if (hasEmptyRequiredField) {
-    event.preventDefault();
     if (formStatus) {
       formStatus.textContent = "必須項目を入力してください。";
     }
@@ -40,7 +39,6 @@ leadForm?.addEventListener("submit", (event) => {
   }
 
   if (emailField && !emailField.validity.valid) {
-    event.preventDefault();
     if (formStatus) {
       formStatus.textContent = "有効なメールアドレスを入力してください。";
     }
@@ -52,38 +50,36 @@ leadForm?.addEventListener("submit", (event) => {
     formStatus.textContent = "送信しています...";
   }
 
-  hasPendingSubmission = true;
-});
+  const payload = new URLSearchParams();
 
-submitFrame?.addEventListener("load", () => {
-  if (!hasPendingSubmission) {
-    return;
+  for (const field of entryFields) {
+    payload.set(field.name, field.value.trim());
   }
 
-  hasPendingSubmission = false;
-  leadForm.reset();
-  if (formStatus) {
-    formStatus.textContent = "ありがとうございます。内容を確認し、研修テーマと実施時期に合わせてご連絡します。";
+  for (const field of leadForm.querySelectorAll("input[type='hidden']")) {
+    payload.set(field.name, field.value);
   }
-});
 
-leadForm?.addEventListener("formdata", (event) => {
-  for (const [name, value] of event.formData.entries()) {
-    if (name.startsWith("entry.")) {
-      event.formData.set(name, String(value).trim());
+  try {
+    const response = await fetch(leadForm.action, {
+      method: "POST",
+      body: payload,
+      headers: {
+        "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Lead form submission failed");
     }
-  }
-});
 
-leadForm?.addEventListener("submit", () => {
-  window.setTimeout(() => {
-    if (!hasPendingSubmission) {
-      return;
-    }
-    hasPendingSubmission = false;
     leadForm.reset();
     if (formStatus) {
       formStatus.textContent = "ありがとうございます。内容を確認し、研修テーマと実施時期に合わせてご連絡します。";
     }
-  }, 2500);
+  } catch {
+    if (formStatus) {
+      formStatus.textContent = "送信できませんでした。時間をおいてもう一度お試しください。";
+    }
+  }
 });

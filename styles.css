@@ -782,13 +782,6 @@ mark.ok {
   outline: 3px solid rgba(30, 111, 92, 0.16);
 }
 
-.form-submit-frame {
-  border: 0;
-  height: 0;
-  position: absolute;
-  width: 0;
-}
-
 .form-status {
   color: var(--color-primary-strong);
   font-weight: 700;
