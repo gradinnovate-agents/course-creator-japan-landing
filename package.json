@@ -1,0 +1,15 @@
+{
+  "name": "course-creator-japan-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css script.js _headers dist/",
+    "dev": "npx serve . -l 4173",
+    "check": "node --check script.js",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name course-creator-japan-landing"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4",
+    "wrangler": "^4.18.0"
+  }
+}
