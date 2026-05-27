@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AI CourseOps">
+  <rect width="64" height="64" rx="12" fill="#0f6b57" />
+  <path d="M16 44 26 20h6l10 24h-6l-2-5H24l-2 5h-6Zm10-10h6l-3-8-3 8Z" fill="#f7fbf8" />
+  <path d="M45 20h5v24h-5V20Z" fill="#f7fbf8" />
+  <path d="M12 12h40" stroke="#d8b36a" stroke-width="4" stroke-linecap="round" />
+</svg>
