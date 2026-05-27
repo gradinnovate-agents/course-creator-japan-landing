@@ -4,7 +4,7 @@ Japan-market landing page for positioning AI CourseOps as an AI/DX training deli
 
 Live site:
 
-- https://course-creator-japan-landing.pages.dev
+- https://course-creator-japan.projectai.tw
 
 Core documents:
 
