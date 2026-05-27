@@ -285,7 +285,10 @@
           <form
             class="lead-form"
             data-lead-form
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfyX30Pl3IXzZyxs0soXauGldZ5pQBA1ywJU6qTps49KNIbDA/formResponse"
             data-google-action="https://docs.google.com/forms/d/e/1FAIpQLSfyX30Pl3IXzZyxs0soXauGldZ5pQBA1ywJU6qTps49KNIbDA/formResponse"
+            method="POST"
+            target="google-form-submit-frame"
           >
             <div class="form-row">
               <label for="lead-name">お名前 <span>必須</span></label>
@@ -330,9 +333,19 @@
                 required
               ></textarea>
             </div>
+            <input type="hidden" name="fvv" value="1" />
+            <input type="hidden" name="pageHistory" value="0" />
+            <input type="hidden" name="fbzx" value="-7964737688309046008" />
+            <input type="hidden" name="submissionTimestamp" value="-1" />
             <button class="button button-primary" type="submit">相談を送信する</button>
             <p class="form-status" data-form-status role="status" aria-live="polite"></p>
           </form>
+          <iframe
+            class="form-submit-frame"
+            name="google-form-submit-frame"
+            title="Google Form submission"
+            aria-hidden="true"
+          ></iframe>
         </div>
       </section>
     </main>

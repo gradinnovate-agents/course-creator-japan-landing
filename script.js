@@ -23,16 +23,16 @@ nav?.addEventListener("click", (event) => {
 
 const leadForm = document.querySelector("[data-lead-form]");
 const formStatus = document.querySelector("[data-form-status]");
+const submitFrame = document.querySelector("[name='google-form-submit-frame']");
+let hasPendingSubmission = false;
 
-leadForm?.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  const formData = new FormData(leadForm);
+leadForm?.addEventListener("submit", (event) => {
   const entryFields = Array.from(leadForm.querySelectorAll("[name^='entry.']"));
   const hasEmptyRequiredField = entryFields.some((field) => field.required && !field.value.trim());
   const emailField = leadForm.querySelector("input[type='email']");
 
   if (hasEmptyRequiredField) {
+    event.preventDefault();
     if (formStatus) {
       formStatus.textContent = "必須項目を入力してください。";
     }
@@ -40,6 +40,7 @@ leadForm?.addEventListener("submit", async (event) => {
   }
 
   if (emailField && !emailField.validity.valid) {
+    event.preventDefault();
     if (formStatus) {
       formStatus.textContent = "有効なメールアドレスを入力してください。";
     }
@@ -51,24 +52,38 @@ leadForm?.addEventListener("submit", async (event) => {
     formStatus.textContent = "送信しています...";
   }
 
-  const body = new URLSearchParams();
-  entryFields.forEach((field) => {
-    body.set(field.name, String(formData.get(field.name) || "").trim());
-  });
+  hasPendingSubmission = true;
+});
 
-  try {
-    await fetch(leadForm.dataset.googleAction, {
-      method: "POST",
-      mode: "no-cors",
-      body,
-    });
+submitFrame?.addEventListener("load", () => {
+  if (!hasPendingSubmission) {
+    return;
+  }
+
+  hasPendingSubmission = false;
+  leadForm.reset();
+  if (formStatus) {
+    formStatus.textContent = "ありがとうございます。内容を確認し、研修テーマと実施時期に合わせてご連絡します。";
+  }
+});
+
+leadForm?.addEventListener("formdata", (event) => {
+  for (const [name, value] of event.formData.entries()) {
+    if (name.startsWith("entry.")) {
+      event.formData.set(name, String(value).trim());
+    }
+  }
+});
+
+leadForm?.addEventListener("submit", () => {
+  window.setTimeout(() => {
+    if (!hasPendingSubmission) {
+      return;
+    }
+    hasPendingSubmission = false;
     leadForm.reset();
     if (formStatus) {
       formStatus.textContent = "ありがとうございます。内容を確認し、研修テーマと実施時期に合わせてご連絡します。";
     }
-  } catch {
-    if (formStatus) {
-      formStatus.textContent = "送信できませんでした。時間をおいてもう一度お試しください。";
-    }
-  }
+  }, 2500);
 });
