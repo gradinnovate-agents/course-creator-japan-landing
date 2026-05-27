@@ -1,6 +1,6 @@
-# Course Creator Japan Landing
+# AI CourseOps Japan Landing
 
-Japan-market landing page planning for positioning Course Creator as an AI/DX training delivery workflow.
+Japan-market landing page for positioning AI CourseOps as an AI/DX training delivery workflow.
 
 Live site:
 
