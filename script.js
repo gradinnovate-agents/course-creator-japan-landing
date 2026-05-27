@@ -28,14 +28,33 @@ leadForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const formData = new FormData(leadForm);
-  const entryValue = String(formData.get("entry.1443266340") || "").trim();
+  const entryFields = Array.from(leadForm.querySelectorAll("[name^='entry.']"));
+  const hasEmptyRequiredField = entryFields.some((field) => field.required && !field.value.trim());
+  const emailField = leadForm.querySelector("input[type='email']");
+
+  if (hasEmptyRequiredField) {
+    if (formStatus) {
+      formStatus.textContent = "必須項目を入力してください。";
+    }
+    return;
+  }
+
+  if (emailField && !emailField.validity.valid) {
+    if (formStatus) {
+      formStatus.textContent = "有効なメールアドレスを入力してください。";
+    }
+    emailField.focus();
+    return;
+  }
 
   if (formStatus) {
     formStatus.textContent = "送信しています...";
   }
 
   const body = new URLSearchParams();
-  body.set("entry.1443266340", entryValue);
+  entryFields.forEach((field) => {
+    body.set(field.name, String(formData.get(field.name) || "").trim());
+  });
 
   try {
     await fetch(leadForm.dataset.googleAction, {
