@@ -287,73 +287,16 @@
             data-lead-form
             data-google-action="https://docs.google.com/forms/d/e/1FAIpQLSfyX30Pl3IXzZyxs0soXauGldZ5pQBA1ywJU6qTps49KNIbDA/formResponse"
           >
-            <div class="form-row">
-              <label for="lead-name">お名前 <span>必須</span></label>
-              <input id="lead-name" name="name" autocomplete="name" required />
-            </div>
-            <div class="form-row">
-              <label for="lead-email">メールアドレス <span>必須</span></label>
-              <input id="lead-email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div class="form-row">
-              <label for="lead-org">組織名 <span>必須</span></label>
-              <input id="lead-org" name="organization" autocomplete="organization" required />
-            </div>
-            <div class="form-row">
-              <label for="lead-role">役職 / 担当</label>
-              <input id="lead-role" name="role" autocomplete="organization-title" />
-            </div>
-            <div class="form-row">
-              <label for="lead-type">組織種別</label>
-              <select id="lead-type" name="organization_type">
-                <option value="">選択してください</option>
-                <option>研修会社 / 教育事業者</option>
-                <option>大学 / 継続教育部門</option>
-                <option>企業 HR / L&D</option>
-                <option>DX / AI推進部門</option>
-                <option>その他</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="lead-topic">研修テーマ <span>必須</span></label>
-              <input id="lead-topic" name="training_topic" required />
-            </div>
-            <div class="form-row">
-              <label for="lead-materials">既存資料</label>
-              <select id="lead-materials" name="source_materials">
-                <option value="">選択してください</option>
-                <option>社内資料 / 規程がある</option>
-                <option>既存教材がある</option>
-                <option>公開シラバス / 要件がある</option>
-                <option>まだ整理中</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="lead-timeline">開始時期</label>
-              <select id="lead-timeline" name="timeline">
-                <option value="">選択してください</option>
-                <option>1か月以内</option>
-                <option>1-3か月以内</option>
-                <option>3-6か月以内</option>
-                <option>未定</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <label for="lead-budget">概算予算</label>
-              <select id="lead-budget" name="budget">
-                <option value="">選択してください</option>
-                <option>100万円未満</option>
-                <option>100-300万円</option>
-                <option>300-500万円</option>
-                <option>500万円以上</option>
-                <option>未定</option>
-              </select>
-            </div>
             <div class="form-row form-row-wide">
-              <label for="lead-message">ご相談内容 <span>必須</span></label>
-              <textarea id="lead-message" name="message" rows="5" required></textarea>
+              <label for="lead-message">ご相談内容（研修テーマ、対象者、実施時期、既存資料、レビュー/報告の必要性） <span>必須</span></label>
+              <textarea
+                id="lead-message"
+                name="entry.1443266340"
+                rows="9"
+                placeholder="例: お名前、組織名、メールアドレス、研修テーマ、対象者、実施時期、既存資料、レビュー/報告の必要性を記入してください。"
+                required
+              ></textarea>
             </div>
-            <input type="hidden" name="entry.1443266340" data-google-entry />
             <button class="button button-primary" type="submit">相談を送信する</button>
             <p class="form-status" data-form-status role="status" aria-live="polite"></p>
           </form>
