@@ -84,13 +84,13 @@
 
 | 機構 | 表單 / 頁面 | 狀態 | 阻擋原因 / 備註 |
 |---|---|---|---|
-| AVILEN | https://service.avilen.co.jp/inquiry_ml | 未送出 | 後端驗證要求電話番号必填；頁面也註明営業等の連絡は遠慮。 |
-| エッジテクノロジー | https://www.edge-tech.co.jp/contact/service-contact.html | 未送出 | 表單文字顯示電話番号必填。 |
+| AVILEN | https://service.avilen.co.jp/inquiry_ml | 送出済み | 2026-05-30 送出；頁面顯示 THANK YOU。 |
+| エッジテクノロジー | https://www.edge-tech.co.jp/contact/service-contact.html | 送出済み | 2026-05-30 送出；頁面顯示 お問い合わせ完了。 |
 | 金沢工業大学 KITリカレント教育 | https://www.kanazawa-it.ac.jp/rec/dxreskill/ | 未送出 | 主要線上表單為講座申込フォーム，不適合外部訪談留言；已知窗口為 `dx-rec@mlist.kanazawa-it.ac.jp`。 |
-| GUGA | https://guga.or.jp/contact/ | 未送出 | 後端驗證要求 Tel 必填。 |
-| 神戸大学 数理・データサイエンスセンター | https://www.cmds.kobe-u.ac.jp/contact/index.html | 未送出 | 後端驗證要求電話番号必填。 |
-| Aidemy Business | https://business.aidemy.net/contact/ | 未送出 | 表單 HTML 顯示電話番号必填。 |
-| TechAcademy ビジネス | https://training.techacademy.jp/training/contact | 未送出 | 表單 HTML 顯示電話番号必填。 |
-| キカガク | https://www.kikagaku.co.jp/contact/business | 未送出 | Pardot 表單電話番号必填。 |
-| スキルアップAI | https://share.hsforms.com/1jXIsst73S6-o0owBkGbYCA2mtef | 未送出 | 営業専用フォーム可用，但電話番号必填，且有 reCAPTCHA。 |
-| STANDARD | https://standard-dx.com/contact/ | 未送出 | HubSpot 表單電話番号必填。 |
+| GUGA | https://guga.or.jp/contact/ | 送出済み | 2026-05-30 送出；頁面顯示 お問い合わせ完了。 |
+| 神戸大学 数理・データサイエンスセンター | https://www.cmds.kobe-u.ac.jp/contact/index.html | 送出済み | 2026-05-30 送出；頁面顯示 お問い合わせを受け付けました。 |
+| Aidemy Business | https://business.aidemy.net/contact/ | 送出済み | 2026-05-30 送出；國際格式被拒後改用同一支電話的本地格式 `0911834304`，頁面顯示 お問い合わせありがとうございます。 |
+| TechAcademy ビジネス | https://training.techacademy.jp/training/contact | 送出済み | 2026-05-30 送出；頁面顯示 ありがとうございました。 |
+| キカガク | https://www.kikagaku.co.jp/contact/business | 送出済み | 2026-05-30 送出；Pardot 表單顯示送信完了。 |
+| スキルアップAI | https://share.hsforms.com/1jXIsst73S6-o0owBkGbYCA2mtef | 未送出 | 営業専用フォーム送信時に reCAPTCHA 検証失敗；需人工在瀏覽器完成或改走其他窗口。 |
+| STANDARD | https://standard-dx.com/contact/ | 未送出 | HubSpot 表單電話欄預設日本國碼，拒絕台灣手機；自動化未能成功切換 Taiwan +886。 |
