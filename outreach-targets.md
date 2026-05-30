@@ -77,3 +77,20 @@
 | 機構 | 寄信日 | 聯絡人 | 回覆狀態 | 下次動作 | 備註 |
 |---|---|---|---|---|---|
 |  |  |  |  |  |  |
+
+## 表單追蹤
+
+作成日: 2026-05-30
+
+| 機構 | 表單 / 頁面 | 狀態 | 阻擋原因 / 備註 |
+|---|---|---|---|
+| AVILEN | https://service.avilen.co.jp/inquiry_ml | 未送出 | 後端驗證要求電話番号必填；頁面也註明営業等の連絡は遠慮。 |
+| エッジテクノロジー | https://www.edge-tech.co.jp/contact/service-contact.html | 未送出 | 表單文字顯示電話番号必填。 |
+| 金沢工業大学 KITリカレント教育 | https://www.kanazawa-it.ac.jp/rec/dxreskill/ | 未送出 | 主要線上表單為講座申込フォーム，不適合外部訪談留言；已知窗口為 `dx-rec@mlist.kanazawa-it.ac.jp`。 |
+| GUGA | https://guga.or.jp/contact/ | 未送出 | 後端驗證要求 Tel 必填。 |
+| 神戸大学 数理・データサイエンスセンター | https://www.cmds.kobe-u.ac.jp/contact/index.html | 未送出 | 後端驗證要求電話番号必填。 |
+| Aidemy Business | https://business.aidemy.net/contact/ | 未送出 | 表單 HTML 顯示電話番号必填。 |
+| TechAcademy ビジネス | https://training.techacademy.jp/training/contact | 未送出 | 表單 HTML 顯示電話番号必填。 |
+| キカガク | https://www.kikagaku.co.jp/contact/business | 未送出 | Pardot 表單電話番号必填。 |
+| スキルアップAI | https://share.hsforms.com/1jXIsst73S6-o0owBkGbYCA2mtef | 未送出 | 営業専用フォーム可用，但電話番号必填，且有 reCAPTCHA。 |
+| STANDARD | https://standard-dx.com/contact/ | 未送出 | HubSpot 表單電話番号必填。 |
